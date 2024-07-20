@@ -68,6 +68,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                 <select name="item" id="item" class="selectpicker form-control bg-transparent" data-style="py-0">
                     <option value="မုန့်">မုန့်</option>
                     <option value="အလှကုန်ပစ္စည်း">အလှကုန်ပစ္စည်း</option>
+                    <option value="မုန့်">ဆေးဝါမး</option>
+                    <option value="အလှကုန်ပစ္စည်း">ဖျော်ရည်</option>
+                    <option value="မုန့်">အသုံးအဆောင်</option>
+                    <option value="အလှကုန်ပစ္စည်း">လျှပ်စစ်ပစ္စည်း</option>
                 </select>
             </div>
             <div class="col-md-6">

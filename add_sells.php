@@ -1,5 +1,8 @@
-
-    <form id="voucherForm" method="POST" action="process_voucher.php">
+<?php include './main/index.php';
+include './main/db_connect.php';
+?>
+<br><br><br>
+    <form id="voucherForm" method="POST" action="process_voncher.php">
         <div class="container-fluid mt-3">
             <div>
                 <h5>ရောင်းဈေးပေါင်းထည့်ရန်</h5>

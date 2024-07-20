@@ -115,7 +115,7 @@
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a href="../add_sells.php">
+                                    <a href="../add_sell.php">
                                         <i class="las la-minus"></i><span>ရောင်းအားပေါင်းထည့်ရန်</span>
                                     </a>
                                 </li>
