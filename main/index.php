@@ -17,10 +17,10 @@
 
 <body class="bg-dark">
     <!-- loader Start -->
-    <div id="loading">
+    <!-- <div id="loading">
         <div id="loading-center">
         </div>
-    </div>
+    </div> -->
     <!-- loader END -->
     <!-- Wrapper Start -->
     <div class="wrapper">
@@ -115,7 +115,7 @@
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a href="../add_sell.php">
+                                    <a href="../add_sells.php">
                                         <i class="las la-minus"></i><span>ရောင်းအားပေါင်းထည့်ရန်</span>
                                     </a>
                                 </li>

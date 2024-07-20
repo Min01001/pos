@@ -95,12 +95,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
             <div class="col-md-6">
                 <label for="currentInput" class="form-label text-white">မှုရင်းဈေးနှုန်း</label>
                 <input type="text" class="form-control bg-transparent text-white" id="currentInput" name="current"
-                    readonly>
+                    >
             </div>
             <div class="col-md-6">
                 <label for="current_priceInput" class="form-label text-white">ရောင်းဈေး</label>
                 <input type="text" class="form-control bg-transparent text-white" id="current_priceInput"
-                    name="current_price" readonly>
+                    name="current_price" >
             </div>
             <div class="col-md-6">
                 <label for="qty" class="form-label text-white">အရေအတွက်</label>

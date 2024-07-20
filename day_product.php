@@ -18,6 +18,7 @@ if (file_exists($file)) {
                 <th>Barcode</th>
                 <th>Product(ပစ္စည်းအမည်)</th>
                 <th>ပစ္စည်းအမျိုးအစား</th>
+                <th>မူရင်းဈေး</th>
                 <th>ရောင်းဈေး</th>
                 <th>အမြတ်ငွေ</th>
                 <th>အရေအတွက်</th>
@@ -32,7 +33,7 @@ if (file_exists($file)) {
 
 include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
 
-$sql = "SELECT barcode, product, item, total_price, SUM(profic) AS total_profic, SUM(quantity) AS total_quantity, SUM(total) AS TOTAL, DATE_FORMAT(date, '%Y-%m-%d') AS day,id FROM products GROUP BY day,barcode ORDER BY id DESC,barcode";
+$sql = "SELECT barcode, product, item, price, total_price, SUM(profic) AS total_profic, SUM(quantity) AS total_quantity, SUM(total) AS TOTAL, DATE_FORMAT(date, '%Y-%m-%d') AS day,id FROM products_copy GROUP BY day,barcode ORDER BY id DESC,barcode";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0) {
@@ -42,6 +43,7 @@ if($result->num_rows > 0) {
         echo "<td>" . $row["barcode"] . "</td>";
         echo "<td>" . $row["product"] . "</td>";
         echo "<td>" . $row["item"] . "</td>";
+        echo "<td>" . $row["price"] . "</td>";
         echo "<td>" . $row["total_price"] . "</td>";
         echo "<td>" . $row["total_profic"] . "</td>";
         echo "<td>" . $row["total_quantity"] . "</td>";

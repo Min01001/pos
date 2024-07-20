@@ -18,7 +18,7 @@ if (file_exists($file)) {
                 <th>Barcode</th>
                 <th>Product(ပစ္စည်းအမည်)</th>
                 <th>အရေအတွက်</th>
-                <th>ဈေးနှုန်း</th>
+                <th>ရောင်းဈေး</th>
                 <th>စုစုပေါင်းတန်ဖိုး</th>
                 <th>ရက်စွဲ</th>
             </tr>

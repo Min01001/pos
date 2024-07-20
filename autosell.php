@@ -6,7 +6,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_conne
 $barcode = $_GET['barcode'];
 
 // Prepare SQL statement to fetch product details based on barcode
-$sql = "SELECT product, price FROM products WHERE barcode = '$barcode'";
+$sql = "SELECT product, total_price FROM products WHERE barcode = '$barcode'";
 
 $result = $conn->query($sql);
 
@@ -14,11 +14,11 @@ if ($result->num_rows > 0) {
     // Product details found, return them as JSON
     $row = $result->fetch_assoc();
     $product = $row['product'];
-    $price = $row['price'];
+    $total_price = $row['total_price'];
 
     $response = array(
         'product' => $product,
-        'price' => $price
+        'total_price' => $total_price
     );
 
     echo json_encode($response);

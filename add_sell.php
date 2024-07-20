@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $barcode = $_POST['barcode'];
         $product = $_POST['product'];
         $item_count = $_POST['item_count'];
-        $price = $_POST['price'];
+        $price = $_POST['total_price'];
         $total_price = $item_count * $price;
         $date = $_POST['date'];
 
@@ -115,7 +115,7 @@ $conn->close();
                         <div class="form-group row mb-3">
                             <label for="totalInput" class="col-sm-3 col-form-label text-white">ဈေးနှုန်း</label>
                             <div class="col-sm-9">
-                                <input type="number" step="0.01" class="form-control" id="totalInput" name="price">
+                                <input type="number" step="0.01" class="form-control" id="totalInput" name="total_price">
                             </div>
                         </div>
 
@@ -134,7 +134,7 @@ $conn->close();
                             .then(response => response.json())
                             .then(data => {
                                 document.getElementById('productInput').value = data.product;
-                                document.getElementById('totalInput').value = data.price;
+                                document.getElementById('totalInput').value = data.total_price;
                             })
                             .catch(error => console.error('Error:', error));
                     }

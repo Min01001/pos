@@ -1,54 +1,47 @@
 <?php
-// Correct path to the file
+// Include necessary files
 include './main/index.php';
-
-// Include the database connection file
 include './main/db_connect.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['submit'])) {
-        // Retrieve and sanitize form data
-        $barcode = $_POST['barcode'];
-        $product = $_POST['product'];
-        $item = $_POST['item'];
-        $price = $_POST['current'];
-        $total_price = $_POST['current_price'];
-        $quantity = $_POST['qty'];
-        $date = $_POST['date'];
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+    // Retrieve and sanitize form data
+    $barcode = $_POST['barcode'];
+    $product = $_POST['product'];
+    $item = $_POST['item'];
+    $price = $_POST['current'];
+    $total_price = $_POST['current_price'];
+    $quantity = $_POST['qty'];
+    $date = $_POST['date'];
+    $profic = ($total_price - $price) * $quantity;
+    $total = $total_price * $quantity;
 
-        $profic = ($total_price - $price) * $quantity;
-        $total = $total_price * $quantity;
 
-        // Check if the barcode already exists in the database
-        $stmt = $conn->prepare("SELECT COUNT(*) FROM Products WHERE barcode = ?");
-        $stmt->bind_param("s", $barcode);
-        $stmt->execute();
-        $stmt->bind_result($count);
-        $stmt->fetch();
-        $stmt->close();
+    // Prepare and execute the statement for the 'products' table
+    $stmt = $conn->prepare("INSERT INTO products (barcode, product, item, price, total_price, profic, quantity, total, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssddds", $barcode, $product, $item, $price, $total_price, $profic, $quantity, $total, $date);
 
-        if ($count > 0) {
-            // Barcode already exists
-            echo "<script>alert('Error: Barcode ပေါင်းထည့်လို့မရပါ(eg: barcode ပြန်စစ်ပါ).');</script>";
+    // Prepare and execute the statement for the 'products_copy' table
+    $stmt_copy = $conn->prepare("INSERT INTO products_copy (barcode, product, item, price, total_price, profic, quantity, total, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt_copy->bind_param("sssssddds", $barcode, $product, $item, $price, $total_price, $profic, $quantity, $total, $date);
+
+    if ($stmt->execute()) {
+        if ($stmt_copy->execute()) {
+            echo "<script>window.location.href='add_product.php';</script>";
         } else {
-            // Insert data into the database
-            $stmt = $conn->prepare("INSERT INTO Products (barcode, product, item, price, total_price, profic, quantity, date, total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssssss", $barcode, $product, $item, $price, $total_price, $profic, $quantity, $date, $total);
-
-            if ($stmt->execute()) {
-                echo "<script>window.location.href='add_product.php';</script>";
-                exit();
-            } else {
-                echo "Error: " . $stmt->error;
-            }
-
-            $stmt->close();
+            echo "Error inserting into Products_copy: " . $stmt_copy->error;
         }
-
-        $conn->close();
+    } else {
+        echo "Error inserting into Products: " . $stmt->error;
     }
+
+    // Close statements and connection
+    $stmt->close();
+    $stmt_copy->close();
+    $conn->close();
 }
 ?>
+
+
 
 
 <style>

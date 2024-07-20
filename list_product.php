@@ -30,8 +30,7 @@ if (file_exists($file)) {
                     <th>ပစ္စည်းအမျိုးအစား</th>
                     <th>မှုရင်းဈေး</th>
                     <th>ရောင်းဈေး</th>
-                    <th>အမြတ်ငွေ</th>
-                    <th>အရေအတွက်</th>
+                    <!-- <th>အမြတ်ငွေ</th> -->
                     <th>စုစုပေါင်းတန်ဖိုး</th>
                     <th>ရက်စွဲ</th>
                     <th colspan="2" style="text-align: center;">Action</th>
@@ -47,14 +46,14 @@ if (file_exists($file)) {
 
                 // Modify the SQL query based on the search barcode
                 if (!empty($searchBarcode)) {
-                    $sql = "SELECT barcode, product, item, price, total_price, profic, quantity, total, date, id FROM products 
+                    $sql = "SELECT barcode, product, item, price, total_price, total, date, id FROM products 
                             WHERE barcode LIKE ?
                             ORDER BY id DESC";
                     $stmt = $conn->prepare($sql);
                     $searchParam = "%{$searchBarcode}%";
                     $stmt->bind_param('s', $searchParam);
                 } else {
-                    $sql = "SELECT barcode, product, item, price, total_price, profic, quantity, total, date, id FROM products ORDER BY id DESC";
+                    $sql = "SELECT barcode, product, item, price, total_price, total, date, id FROM products GROUP BY barcode ORDER BY id DESC";
                     $stmt = $conn->prepare($sql);
                 }
 
@@ -69,8 +68,8 @@ if (file_exists($file)) {
                         echo "<td>" . htmlspecialchars($row["item"]) . "</td>";
                         echo "<td>" . htmlspecialchars($row["price"]) . "</td>";
                         echo "<td>" . htmlspecialchars($row["total_price"]) . "</td>";
-                        echo "<td>" . htmlspecialchars($row["profic"]) . "</td>";
-                        echo "<td>" . htmlspecialchars($row["quantity"]) . "</td>";
+                        // echo "<td>" . htmlspecialchars($row["profic"]) . "</td>";
+                        // echo "<td>" . htmlspecialchars($row["quantity"]) . "</td>";
                         echo "<td>" . htmlspecialchars($row["total"]) . "</td>";
                         echo "<td>" . htmlspecialchars($row["date"]) . "</td>";
                         echo "<td>";
