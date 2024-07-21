@@ -12,7 +12,8 @@
 // Correct path to the file
 
 
-include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
+
+include './main/db_connect.php';
 
 $sql = "SELECT barcode, product, item_count, price,id FROM sell ORDER BY id DESC";
 $result = $conn->query($sql);

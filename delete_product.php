@@ -1,15 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "store_shop";
 
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include './main/db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate CSRF token here if implemented

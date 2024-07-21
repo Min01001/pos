@@ -1,17 +1,12 @@
 <?php
-$file = __DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'index.php';
+include './main/index.php';
 
-if (file_exists($file)) {
-    include($file);
-} else {
-    echo "File not found: " . $file;
-    exit();
-}
 
 if(isset($_POST['id']) && !empty($_POST['id'])){
     $id = $_POST['id'];
 
-    include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
+
+include './main/db_connect.php';
 
     $sql = "SELECT voncher, item, item_count, price, note, total_price, date FROM documents WHERE id=?";
     $stmt = $conn->prepare($sql);

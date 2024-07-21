@@ -1,13 +1,6 @@
 <?php
-$file = __DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'index.php';
-
-if (file_exists($file)) {
-    include($file);
-} else {
-    echo "File not found: " . $file;
-}
-
-include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
+include './main/index.php';
+include './main/db_connect.php';
 
 //============== Product open================================//  
 

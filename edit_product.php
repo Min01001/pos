@@ -1,11 +1,6 @@
 <?php 
-$file = __DIR__ . DIRECTORY_SEPARATOR . "main" . DIRECTORY_SEPARATOR . "index.php";
-if (file_exists($file)){
-    include $file;
-}else{
-    echo "File not found" . $file;
-}
-
+include './main/index.php';
+include './main/db_connect.php';
 ?>
 
 <div class="content-page">
@@ -13,7 +8,7 @@ if (file_exists($file)){
         // Check if ID is set and not empty
         if (isset($_POST['id']) && !empty($_POST['id'])) {
             $id = $_POST['id'];
-            include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
+
             // Fetch data from the database based on the ID
             $sql = "SELECT barcode, product, item, price, total_price, quantity, date FROM products WHERE id = ?";
             $stmt = $conn->prepare($sql);

@@ -1,4 +1,5 @@
-<?php include './main/index.php';
+<?php 
+include './main/index.php';
 include './main/db_connect.php';
 ?>
 <br><br><br>

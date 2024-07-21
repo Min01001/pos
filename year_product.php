@@ -1,11 +1,6 @@
 <?php
-$file = __DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'index.php';
-
-if (file_exists($file)) {
-    include($file);
-} else {
-    echo "File not found: " . $file;
-}
+include './main/index.php';
+include './main/db_connect.php';
 ?>
 
 
@@ -30,7 +25,6 @@ if (file_exists($file)) {
 // Correct path to the file
 
 
-include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
 
 $sql = "SELECT barcode, product, item, total_price, SUM(profic) AS total_profic, SUM(quantity) AS total_quantity, SUM(total) AS TOTAL, DATE_FORMAT(date, '%Y') AS month,id FROM products_copy GROUP BY month,barcode ORDER BY id DESC,barcode";
 $result = $conn->query($sql);

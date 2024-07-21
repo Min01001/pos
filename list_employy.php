@@ -1,11 +1,6 @@
 <?php
-$file = __DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'index.php';
-
-if (file_exists($file)) {
-    include($file);
-} else {
-    echo "File not found: " . $file;
-}
+include './main/index.php';
+include './main/db_connect.php';
 ?>
 
 <div class="content-page">
@@ -37,7 +32,7 @@ if (file_exists($file)) {
             </tr>
 
             <?php
-                include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
+
 
                 // Get the search query
                 $searchQuery = isset($_GET['search_query']) ? $conn->real_escape_string($_GET['search_query']) : '';

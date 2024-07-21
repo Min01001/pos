@@ -19,8 +19,9 @@ if (isset($_POST['id']) && !empty($_POST['id']) &&
     $total = $total_price * $quantity;
     $date = $_POST['date'];
 
-    include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
 
+    include './main/db_connect.php';
+    
     $sql = "UPDATE products SET barcode = ?, product = ?, item = ?, price = ?, total_price = ?, quantity = ?, total = ?, date = ? WHERE id = ?";
     $stmt = $conn->prepare($sql);
     

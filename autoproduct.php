@@ -1,6 +1,6 @@
 <?php
 // Simulating database connection
-include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
+include './main/db_connect.php';
 
 // Get barcode value from AJAX request
 $barcode = $_GET['barcode'];

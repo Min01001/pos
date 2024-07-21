@@ -1,11 +1,6 @@
 <?php
-$file = __DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'index.php';
-
-if (file_exists($file)) {
-    include($file);
-} else {
-    echo "File not found: " . $file;
-}
+include './main/index.php';
+include './main/db_connect.php';
 ?>
 
 
@@ -26,7 +21,6 @@ if (file_exists($file)) {
 // Correct path to the file
 
 
-include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
 
 $sql = "SELECT item, item_count, SUM(total_price) AS total, DATE_FORMAT(date, '%Y') AS month,id FROM documents GROUP BY month,item ORDER BY id DESC,item";
 $result = $conn->query($sql);

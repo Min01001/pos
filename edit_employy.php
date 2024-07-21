@@ -1,10 +1,6 @@
 <?php 
-$file = __DIR__ . DIRECTORY_SEPARATOR . "main" . DIRECTORY_SEPARATOR . "index.php";
-if (file_exists($file)){
-    include $file;
-}else{
-    echo "File not found" . $file;
-}
+include './main/index.php';
+include './main/db_connect.php';
 
 ?>
 
@@ -17,7 +13,7 @@ if (file_exists($file)){
                 $id = $_POST['id'];
 
 
-                include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
+              
                 // Fetch data from the database based on the ID
                 $sql = "SELECT nrc, name, father, address, birthday, position, startdate, salary, gender, phone, email FROM employy WHERE id = ?";
                 $stmt = $conn->prepare($sql);

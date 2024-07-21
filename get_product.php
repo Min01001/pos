@@ -1,5 +1,6 @@
 <?php
-include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
+
+include './main/db_connect.php';
 
 $barcode = $_GET['barcode'] ?? ''; // Null coalescing operator ကို သုံးတာက ပိုအဆင်ပြေတယ်
 if ($barcode) {

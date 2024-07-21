@@ -10,7 +10,8 @@
 
 <?php
 
-include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
+
+include './main/db_connect.php';
 
 $sql = "SELECT barcode, product, item_count, total_price, date, id FROM sell_record ORDER BY id DESC";
 $result = $conn->query($sql);

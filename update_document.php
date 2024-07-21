@@ -2,7 +2,8 @@
 // Check if the form is submitted via POST method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database connection parameters
-    include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
+
+    include './main/db_connect.php';
 
     // Prepare and bind parameters for the update query
     $sql = "UPDATE documents SET voncher=?, item=?, item_count=?, price=?, note=?, total_price=?, date=? WHERE id=?";

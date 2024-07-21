@@ -1,6 +1,7 @@
 <?php
 
-include(__DIR__ . DIRECTORY_SEPARATOR . 'main' . DIRECTORY_SEPARATOR . 'db_connect.php');
+
+include './main/db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate CSRF token here if implemented
