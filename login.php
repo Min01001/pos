@@ -3,7 +3,7 @@
 $servername = "sql106.infinityfree.com"; // Change if your database is hosted elsewhere
 $username = "if0_36944494";
 $password = "tKStKffbAC";
-$database = "if0_36944494_XXX_store_shop";
+$database = "if0_36944494_store_shop";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
