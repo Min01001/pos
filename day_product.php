@@ -1,5 +1,5 @@
 <?php
-include './main/index.php';
+include './main/sidebar.php';
 include './main/db_connect.php';
 ?>
 

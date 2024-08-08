@@ -1,5 +1,5 @@
 <?php
-include './main/index.php';
+include './main/sidebar.php';
 include './main/db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -118,7 +118,10 @@ $conn->close();
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary" name="submit" value="submit"
                                     style="width: 200px; height: 40px;">Add</button>
+                                    <button type="submit" class="btn btn-danger" name="submit" value="submit"
+                                    style="width: 200px; height: 40px;">Print</button>
                             </div>
+                            
                         </div>
                     </form>
 

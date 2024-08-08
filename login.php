@@ -1,17 +1,6 @@
 <?php
 // Database connection parameters
-$servername = "sql106.infinityfree.com"; // Change if your database is hosted elsewhere
-$username = "if0_36944494";
-$password = "tKStKffbAC";
-$database = "if0_36944494_store_shop";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include './main/db_connect.php';
 
 // Function to sanitize user input
 function sanitize_input($data) {

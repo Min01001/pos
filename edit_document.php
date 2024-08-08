@@ -1,5 +1,5 @@
 <?php
-include './main/index.php';
+include './main/sidebar.php';
 
 
 if(isset($_POST['id']) && !empty($_POST['id'])){

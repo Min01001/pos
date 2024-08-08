@@ -1,6 +1,6 @@
 <?php
 // Include necessary files
-include './main/index.php';
+include './main/sidebar.php';
 include './main/db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
